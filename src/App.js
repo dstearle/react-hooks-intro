@@ -2,9 +2,17 @@ import React, { useState } from 'react';
 import './App.css';
 
 // Todo Component
-function Todo({ todo, index}) {
+function Todo({ todo, index, completeTodo}) {
 
-	return <div className="todo">{todo.text}</div>;
+	return <div className="todo" style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
+		
+			{/* Text */}
+			{todo.text}
+
+			{/* Complete Button */}
+			<div><button onClick={() => completeTodo(index)}>Complete</button></div>
+
+		</div>;
 
 }
 
