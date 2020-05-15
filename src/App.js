@@ -64,27 +64,35 @@ function App() {
 
 	]);
 
+	// Method for adding todos
+	const addTodo = text => {
+
+		const newTodos = [...todos, {text}];
+
+		setTodos(newTodos);
+
+	}
+
 	// Markup
 	return (
 
 		<div className="app">
 
-			{/* Generated Todo List */}
 			<div className="todo-list">
 
-				{
-
-					todos.map(
+				{/* Generated Todo List */}
+				{todos.map(
 						
-						(todo, index) => (
+					(todo, index) => (
 
-							<Todo key={index} index={index} todo={todo} />
-							
-						)
+						<Todo key={index} index={index} todo={todo} />
 						
 					)
 					
-				}
+				)}
+
+				{/* Todo Form */}
+				<TodoForm addTodo={addTodo} />
 
 			</div>
 
