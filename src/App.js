@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
 
+// Todo Component
+function Todo({ todo, index}) {
+
+	return <div className="todo">{todo.text}</div>;
+
+}
+
+// App Component
 function App() {
 
 	// State
@@ -31,6 +39,7 @@ function App() {
 			<div className="todoList">
 
 				{
+
 					todos.map(
 						
 						(todo, index) => (
