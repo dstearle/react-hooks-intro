@@ -81,6 +81,15 @@ function App() {
 
 	}
 
+	// Method for marking off todos
+	const completeTodo = index => {
+
+		const newTodos = [...todos];
+		newTodos[index].isCompleted = true;
+		setTodos(newTodos);
+
+	}
+
 	// Markup
 	return (
 
@@ -93,7 +102,12 @@ function App() {
 						
 					(todo, index) => (
 
-						<Todo key={index} index={index} todo={todo} />
+						<Todo 
+							key={index} 
+							index={index} 
+							todo={todo} 
+							completeTodo={completeTodo}
+						/>
 						
 					)
 					
