@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './App.css';
 
 // Todo Component
 function Todo({ todo, index}) {
@@ -36,7 +37,7 @@ function App() {
 		<div className="app">
 
 			{/* Generated Todo List */}
-			<div className="todoList">
+			<div className="todo-list">
 
 				{
 
