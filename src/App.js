@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 
 // Todo Component
-function Todo({ todo, index, completeTodo, deleteTodo}) {
+function Todo({ todo, index, completeTodo, removeTodo}) {
 
 	return <div className="todo" style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
 		
@@ -12,8 +12,8 @@ function Todo({ todo, index, completeTodo, deleteTodo}) {
 			{/* Complete Button */}
 			<div><button onClick={() => completeTodo(index)}>Complete</button></div>
 
-			{/* Delete Button */}
-			<div><button onClick={() => deleteTodo(index)}>X</button></div>
+			{/* Remove Button */}
+			<div><button onClick={() => removeTodo(index)}>X</button></div>
 
 		</div>;
 
@@ -93,6 +93,15 @@ function App() {
 
 	}
 
+	// Method for removing todos from the list
+	const removeTodo = index => {
+
+		const newTodos = [...todos];
+		newTodos.splice(index, 1);
+		setTodos(newTodos);
+
+	}
+
 	// Markup
 	return (
 
@@ -110,6 +119,7 @@ function App() {
 							index={index} 
 							todo={todo} 
 							completeTodo={completeTodo}
+							removeTodo={removeTodo}
 						/>
 						
 					)
