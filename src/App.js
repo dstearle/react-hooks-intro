@@ -8,6 +8,39 @@ function Todo({ todo, index}) {
 
 }
 
+// Todo Form Component
+function TodoForm({addTodo}) {
+
+	const [value, setValue] = useState('');
+
+	// Function for when form is submitted
+	const handleSubmit = e => {
+
+		e.preventDefault();
+		 
+		// Prevents submission if a value is not provided
+		if(!value) return;
+
+		// The value to be submitted
+		addTodo(value);
+
+		// Resets the input value to empty
+		setValue('');
+
+	}
+
+	return (
+
+		<form onSubmit={handleSubmit}>
+
+			<input type="text" className="input" value={value} onChange={e => setValue(e.target.value)} />
+
+		</form>
+
+	)
+
+}
+
 // App Component
 function App() {
 
